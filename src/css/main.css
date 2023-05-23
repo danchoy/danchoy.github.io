@@ -1,0 +1,156 @@
+
+html, body, div, span, h1, h2 p, header{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+
+article, header {
+	display: block;}
+
+body {
+	line-height: 1;
+}
+
+	html {
+		box-sizing: border-box;
+	}
+
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+
+
+	body {
+		font-family: 'Open Sans', sans-serif;
+		color: #7b818c;
+		font-weight: 400;
+		font-size: 11pt;
+		line-height: 1.85em;
+	}
+
+	h1, h2 {
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		color: #404248;
+		margin: 0 0 1em 0;
+	}
+
+	h1 {
+		font-size: 2em;
+		margin: 0 0 1.5em 0;
+		line-height: 1em;
+	}
+
+	h2 {
+		font-size: 1.35em;
+		margin-top: 2em;
+	}
+
+	p {
+		margin-bottom: 2em;
+	}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	}
+	
+	th, td {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+	background-color: #f2f2f2;
+	}
+/* Container */
+
+	.container {
+		margin: 0 auto;
+		max-width: calc(100% - 100px);
+		width: 1200px;
+	}
+
+
+	article {
+		margin-bottom: 5em;
+	}
+
+	article > :last-child,
+	article:last-child {
+		margin-bottom: 0;
+	}
+
+	header {
+		margin: 0 0 2em 0;
+	}
+
+		header h2 {
+			margin: 0 0 0.25em 0;
+		}
+
+		header p {
+			display: block;
+			/* text-transform: uppercase; */
+			font-weight: 700;
+			letter-spacing: 0.065em;
+			font-size: 0.9em;
+			color: #696969;
+			margin: 0;
+		}
+
+	header.major {
+		border-bottom: solid 1px #dbdbdb;
+		margin: 0 0 3em 0;
+	}
+
+		header.major:after {
+			content: '';
+			display: block;
+			border-top: solid 1px #dbdbdb;
+			height: 8px;
+		}
+
+		header.major h2 {
+			margin: 0 0 1.2em 0;
+		}
+
+		header.major p {
+			margin: 0 0 1.5em 0;
+			position: relative;
+			top: -1em;
+		}
+
+.images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image.featured {
+    flex: 1 1 auto;
+    margin: 0 0.5em;
+    overflow: hidden;    /* ensures the image doesn't exceed its container */
+}
+
+.image.featured img {
+    width: 100%;         /* makes the image take up the full width of its parent */
+    height: auto;        /* allows the image to maintain its aspect ratio */
+    object-fit: cover;   /* ensures the image covers the entire width of its parent, cropping as needed */
+}
+
+
+	#main-wrapper {
+		background: #fff;
+	}
+
+	.wrapper {
+		padding: 7em 0 7em 0;
+	}
+
+		.wrapper > .inner {
+			position: relative;
+			z-index: 2;
+		}
