@@ -1,0 +1,144 @@
+:root {
+	display: flex;
+	justify-content: center;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header, hgroup, nav, footer, figure, figcaption, aside, section, article {
+	display: block;
+}
+
+body {
+	background: url(ptrbackground.jpg) ;
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #00569f;
+    background-repeat-y: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#wrapper {
+	width: 80%;
+    min-width: 600px;
+	margin: 15px 10%;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
+header {
+	grid-column: span 5;
+    background-color: #000032;
+	background-image: url(sunset.jpg);
+	background-repeat: no-repeat;
+	background-position: right;
+    color: white;
+}
+
+nav {
+	width: 175px;
+	background-color: lightblue;
+    padding: 10%;
+    grid-row: 2/4;
+}
+
+nav ul {
+	font-size: 1.2em;
+	list-style-type: none;
+}
+
+nav a {
+	text-decoration: none;
+    font-weight: 800;
+	font-size: 90%;
+	transition: all .5s;
+}
+
+nav a:visited {
+	color: #344873;
+}
+
+nav a:hover {
+	color: #FFFFFF;
+}
+
+#content {
+	grid-column: span 4;
+    padding: 4%;
+}
+
+#content ul li {
+	list-style-image: url(marker.gif);
+}
+
+h1 {
+	margin-bottom: 0;
+	padding: 10px;
+}
+
+h2 {
+	color: #3399CC;
+    margin-bottom: 4%;
+}
+
+h1,
+h2 {
+	font-family: Georgia, "Times New Roman", serif;
+}
+
+img {
+	float: left;
+    margin-right: 4%;
+    width: 350px
+}
+
+span {
+	color: #3399CC;
+}
+
+#content ul {
+	margin: 2% 0;
+	list-style-position: inside;
+}
+
+#contact {
+	font-size: 90%;
+}
+
+/* dt {
+	color: #000033;
+} */
+
+footer {
+	font-family: Georgia, "Times New Roman", serif;
+	grid-column: span 2;
+    padding: 0 8% 8%;
+    width: 100%;
+}
+
+/* media queries */
+
+@media screen and (max-width: 425px) {
+	#wrapper {
+		margin: 0 2%;
+	}
+	
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		justify-content: flex-start;
+	}
+	header {
+		background-image: none;
+	}
+}
+	
