@@ -10,36 +10,6 @@ h1 {
     text-align: center;
     padding: 20px 0;
     color: #444;
-    margin-bottom: 0;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-.form-section {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 20%;
-    max-width: 250px;
-}
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F4F4F4;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-h1 {
-    text-align: center;
-    padding: 20px 0;
-    color: #444;
 }
 
 .container {
@@ -102,7 +72,7 @@ input[type=number] {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-button {
+.button-class {
     width: 100%;
     padding: 10px;
     border: none;
@@ -113,7 +83,7 @@ button {
     transition: background-color 0.2s ease;
 }
 
-button:hover {
+.button-class:hover {
     background-color: #0056b3;
 }
 
@@ -141,83 +111,4 @@ td.first-row {
 td.first-column {
     background-color: #0056b3;
     color: white;
-}
-
-.table-section {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    overflow-y: auto;
-    max-height: 80vh; 
-    text-align: left; 
-}
-
-form {
-    display: grid;
-    grid-gap: 20px;
-}
-
-input[type=number] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #007BFF;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#error-message {
-    color: red;
-    margin-bottom: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-td {
-    border: 1px solid #DDD;
-    padding: 10px;
-    text-align: center;
-}
-
-td.first-row {
-    background-color: #007BFF;
-    color: white;
-}
-
-td.first-column {
-    background-color: #0056b3;
-    color: white;
-}
-
-.navigation-section {
-    display: flex;
-    justify-content: center;
-    width: 20%; 
-    max-width: 250px; 
-    margin: 30px;
-}
-
-.navigation-section button {
-    flex: 1; 
-    margin: 0 0.5em;
 }
