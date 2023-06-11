@@ -16,6 +16,7 @@ let currentRowPage = 0;
 const itemsPerPage = 50; // Number of items displayed per page
 let minRowValue, maxRowValue, minColumnValue, maxColumnValue;
 
+
 // Listen for form submission to set the min and max values
 document.getElementById('user-input-form').addEventListener('submit', function(e) {
   e.preventDefault();
