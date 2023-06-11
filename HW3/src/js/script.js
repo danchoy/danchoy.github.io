@@ -69,3 +69,20 @@ function displayTable() {
   document.getElementById('up-button').disabled = currentRowPage <= 0;
   document.getElementById('down-button').disabled = rowEndValue >= maxRowValue;
 }
+
+window.addEventListener('keydown', function(e) {
+  switch(e.key) {
+    case 'ArrowRight':
+      document.getElementById('next-button').click();
+      break;
+    case 'ArrowLeft':
+      document.getElementById('prev-button').click();
+      break;
+    case 'ArrowUp':
+      document.getElementById('up-button').click();
+      break;
+    case 'ArrowDown':
+      document.getElementById('down-button').click();
+      break;
+  }
+});
