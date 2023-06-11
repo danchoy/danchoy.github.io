@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table Generator</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/main.css">
+</head>
+<body>
+    <h1>Multiplication Table Generator</h1>
+    <div class="container">
+        <div class="form-section">
+            <form id="user-input-form">
+                <label for="min-column">Min Column Value:</label>
+                <input type="number" id="min-column" min="-1000000" max="1000000">
+                <label for="max-column">Max Column Value:</label>
+                <input type="number" id="max-column" min="-1000000" max="1000000">
+                <label for="min-row">Min Row Value:</label>
+                <input type="number" id="min-row" min="-1000000" max="1000000">
+                <label for="max-row">Max Row Value:</label>
+                <input type="number" id="max-row" min="-1000000" max="1000000">
+                <button type="submit">Generate Table</button>
+            </form>
+        </div>
+        <div class="navigation-section">
+            <button id="prev-button" disabled>Previous</button>
+            <button id="next-button" disabled>Next</button>
+        </div>
+        <div class="table-section">
+            <p id="error-message"></p>
+            <table id="multiplication-table">
+            </table>
+        </div>
+    </div>
+    <script src="../src/js/script.js"></script>
+</body>
+</html>
