@@ -10,4 +10,4 @@ The application also supports keyboard navigation. The "previous" and "next" but
 
 ## GitHub Repository
 Application URL: https://danchoy.github.io/HW3/pages/
-GitHub Repository: '[link to your Github repository](https://danchoy.github.io/HW3/pages/)'
+GitHub Repository: [link to my Github repository](https://danchoy.github.io/HW3/pages/)
