@@ -1,3 +1,11 @@
+<!-- 
+Author: Dan Choy
+Contact: yatshing_choy@student.uml.edu
+
+Description: This HTML file renders a multiplication table generator form and navigation buttons.
+It links to a CSS stylesheet for styling and a JavaScript file for functionality.
+-->
+
 <!DOCTYPE html>  
 <html>  
 <head>  
@@ -5,10 +13,15 @@
   <link rel="stylesheet" type="text/css" href="../src/css/main.css">  
 </head>  
 <body>  
+  <!-- Main Heading -->  
   <h1>Multiplication Table Generator</h1>  
+
+  <!-- Main container for the form and table -->  
   <div class="container">  
+    <!-- Section for user inputs to generate table -->  
     <div class="form-section">  
       <form id="user-input-form">  
+        <!-- Form fields for column and row values -->  
         <label for="min-column">Min Column Value:</label>  
         <input type="number" id="min-column" min="-1000000" max="1000000">  
         <label for="max-column">Max Column Value:</label>  
@@ -17,21 +30,29 @@
         <input type="number" id="min-row" min="-1000000" max="1000000">  
         <label for="max-row">Max Row Value:</label>  
         <input type="number" id="max-row" min="-1000000" max="1000000">  
+
+        <!-- Submit button to generate table -->  
         <button class="button-class" type="submit">Generate Table</button>  
       </form>  
     </div>  
+
+    <!-- Navigation buttons section -->  
     <div class="navigation-section">  
       <button class="button-class" id="prev-button" disabled>Previous</button>  
       <button class="button-class" id="next-button" disabled>Next</button>
       <button class="button-class" id="up-button" disabled>Up</button>
       <button class="button-class" id="down-button" disabled>Down</button>
     </div>  
+
+    <!-- Section to display table and error message -->  
     <div class="table-section">  
       <p id="error-message"></p>  
       <table id="multiplication-table">  
       </table>  
     </div>  
   </div>  
+
+  <!-- Link to JavaScript file for functionality -->  
   <script src="../src/js/script.js"></script>  
 </body>  
-</html>
+</html> 
