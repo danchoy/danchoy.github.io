@@ -70,7 +70,15 @@ function displayTable() {
   document.getElementById('down-button').disabled = rowEndValue >= maxRowValue;
 }
 
-window.addEventListener('keydown', function(e) {
+let multiplicationTable = document.getElementById('multiplication-table');
+multiplicationTable.addEventListener('mouseover', function() {
+  window.addEventListener('keydown', handleKeydown);
+});
+multiplicationTable.addEventListener('mouseout', function() {
+  window.removeEventListener('keydown', handleKeydown);
+});
+
+function handleKeydown(e) {
   switch(e.key) {
     case 'ArrowRight':
       document.getElementById('next-button').click();
@@ -85,4 +93,4 @@ window.addEventListener('keydown', function(e) {
       document.getElementById('down-button').click();
       break;
   }
-});
+}
