@@ -42,12 +42,16 @@ h1 {
     max-width: 250px;
     position: sticky;
     top: 0;
+    order: 2;
+    width: 58%; 
+    margin-right: 37%;
+    
 }
 
 /* Styles for the navigation buttons */
 .navigation-section {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 20%;
     max-width: 350px;
     margin: 30px;
@@ -125,14 +129,54 @@ td {
     text-align: center;
 }
 
-/* Styles for the first row of the table */
-td.first-row {
-    background-color: #007BFF;
-    color: white;
+.rules {
+    text-align: left;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #007BFF;
+    background-color: #F0F0F0;
+    padding: 20px;
+    border: 2px solid #DDD;
+    border-radius: 10px;
+    line-height: 2;
+}  
+.filter-section {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
-/* Styles for the first column of the table */
-td.first-column {
-    background-color: #0056b3;
-    color: white;
+.odd {
+    background-color: #ffcccc; /* Light red */
+  }
+  
+.even {
+    background-color: #ccffcc; /* Light green */
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row; /* Change this to row to have rules and form side by side */
+    justify-content: space-between;
+    align-items: flex-start; /* This aligns items to start at the top of the container */
+    width: 100%;
+    max-width: 1200px; /* Adjust this value as needed */
+    margin: 0 auto; /* Center the container */
+    flex-wrap: wrap; /* Ensure sections wrap to the next line on smaller screens */
+}
+
+.rules {
+    text-align: left;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #007BFF;
+    background-color: #F0F0F0;
+    padding: 20px;
+    border: 2px solid #DDD;
+    border-radius: 10px;
+    line-height: 1.5;
+    width: 55%; /* Set the width to 40% */
+    order: 1;
+    margin-left: -300px;
 }

@@ -11,30 +11,59 @@
  */
 
 // Initialize navigation variables
-let currentColumnPage = 0;
-let currentRowPage = 0;
-const itemsPerPage = 50; // Number of items displayed per page
-let minRowValue, maxRowValue, minColumnValue, maxColumnValue;
+var currentColumnPage = 0;
+var currentRowPage = 0;
+const itemsPerPage = 50;                  // Number of items displayed per page
+var minRowValue, maxRowValue, minColumnValue, maxColumnValue;
+var colorScheme;                          // Declare colorScheme variable here
+var oddButtonState = false;               // initial state
+var evenButtonState = false;              // initial state
 
+var oddButton = document.getElementById('odd');
+var evenButton = document.getElementById('even');
+
+oddButton.disabled = true;
+evenButton.disabled = true;
 
 // Listen for form submission to set the min and max values
 document.getElementById('user-input-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
   // Extract user-defined values
-  minColumnValue = Number(document.getElementById('min-column').value);
-  maxColumnValue = Number(document.getElementById('max-column').value);
-  minRowValue = Number(document.getElementById('min-row').value);
-  maxRowValue = Number(document.getElementById('max-row').value);
+  minColumnValue = Math.round(Number(document.getElementById('min-column').value));
+  maxColumnValue = Math.round(Number(document.getElementById('max-column').value));
+  minRowValue = Math.round(Number(document.getElementById('min-row').value));
+  maxRowValue = Math.round(Number(document.getElementById('max-row').value));
 
   // Validate the input values
-  if (isNaN(minColumnValue) || isNaN(maxColumnValue) || isNaN(minRowValue) || isNaN(maxRowValue)) {
+  if (isNaN(minColumnValue) || isNaN(maxColumnValue) || isNaN(minRowValue) || isNaN(maxRowValue) ||
+    minColumnValue < -1000000 || minColumnValue > 1000000 || 
+    maxColumnValue < -1000000 || maxColumnValue > 1000000 || 
+    minRowValue < -1000000 || minRowValue > 1000000 || 
+    maxRowValue < -1000000 || maxRowValue > 1000000) {
     document.getElementById('error-message').innerText = "Please enter valid integer numbers.";
   } else {
+    if (minColumnValue > maxColumnValue) {
+      let temp = minColumnValue;
+      minColumnValue = maxColumnValue;
+      maxColumnValue = temp;
+    }
+    if (minRowValue > maxRowValue) {
+      let temp = minRowValue;
+      minRowValue = maxRowValue;
+      maxRowValue = temp;
+    }
+
+    colorScheme = null;                     // Reset color scheme
+    currentColumnPage = 0;  
+    currentRowPage = 0;  
+    displayTable();  
+
     document.getElementById('error-message').innerText = "";
-    currentColumnPage = 0;
-    currentRowPage = 0;
-    displayTable(); // Display the initial table after setting boundaries
+    
+    // Enable the 'odd' and 'even' buttons after form submission
+    oddButton.disabled = false;
+    evenButton.disabled = false;
   }
 });
 
@@ -59,42 +88,100 @@ document.getElementById('down-button').addEventListener('click', function() {
   displayTable();
 });
 
+document.getElementById('odd').addEventListener('click', function() {
+  evenButtonState = false;                  // Always reset the state of the other button
+  oddButtonState = !oddButtonState;         // toggle state
+  if (oddButtonState) {
+    colorScheme = 'odd';
+  } else {
+    colorScheme = null;                     // reset color scheme
+  }
+  displayTable();
+});
+
+document.getElementById('even').addEventListener('click', function() {
+  oddButtonState = false;
+  evenButtonState = !evenButtonState;       // toggle state
+  if (evenButtonState) {
+    colorScheme = 'even';
+  } else {
+    colorScheme = null;                     // reset color scheme
+  }
+  displayTable();
+});
+
 // Function to generate and display the table
 function displayTable() {
   // Determine the start and end values for the current page
-  let columnStartValue = minColumnValue + currentColumnPage * itemsPerPage;
-  let columnEndValue = Math.min(columnStartValue + itemsPerPage, maxColumnValue + 1);
-  
-  let rowStartValue = minRowValue + currentRowPage * itemsPerPage;
-  let rowEndValue = Math.min(rowStartValue + itemsPerPage, maxRowValue + 1);
+  var columnStartValue = minColumnValue + currentColumnPage * itemsPerPage;
+  var columnEndValue = Math.min(columnStartValue + itemsPerPage - 1, maxColumnValue);
+  var rowStartValue = minRowValue + currentRowPage * itemsPerPage;
+  var rowEndValue = Math.min(rowStartValue + itemsPerPage - 1, maxRowValue);
 
-  // Generate the HTML for the table
-  let tableHtml = '<tr><td class="first-row"></td>';
-  for (let j = columnStartValue; j < columnEndValue; j++) {
-    tableHtml += '<td class="first-row">' + j + '</td>';
+  // Calculate the total number of pages
+  var columnPages = Math.ceil((maxColumnValue - minColumnValue + 1) / itemsPerPage);
+  var rowPages = Math.ceil((maxRowValue - minRowValue + 1) / itemsPerPage);
+
+  // Enable or disable navigation buttons based on the current page and the total number of pages
+  document.getElementById('prev-button').disabled = (currentColumnPage <= 0);
+  document.getElementById('next-button').disabled = (currentColumnPage >= columnPages - 1);
+  document.getElementById('up-button').disabled = (currentRowPage <= 0);
+  document.getElementById('down-button').disabled = (currentRowPage >= rowPages - 1);
+
+  // Generate the table HTML
+  var tableHtml = "<table><tr><td></td>";
+  for (let i = columnStartValue; i <= columnEndValue; i++) {
+    tableHtml += "<td>" + i + "</td>";
   }
-  tableHtml += '</tr>';
-
-  for(let i = rowStartValue; i < rowEndValue; i++) {
-    tableHtml += '<tr><td class="first-column">' + i + '</td>';
-    for(let j = columnStartValue; j < columnEndValue; j++) {
-      tableHtml += '<td>' + (i * j) + '</td>';
+  tableHtml += "</tr>";
+  for (let i = rowStartValue; i <= rowEndValue; i++) {
+    tableHtml += "<tr><td>" + i + "</td>";
+    for (let j = columnStartValue; j <= columnEndValue; j++) {
+      tableHtml += "<td>" + i * j + "</td>";
     }
-    tableHtml += '</tr>';
+    tableHtml += "</tr>";
   }
+  tableHtml += "</table>";
 
   // Update the table's HTML
   document.getElementById('multiplication-table').innerHTML = tableHtml;
+  
+  // Call colorCells function after the table is updated
+  if (colorScheme) {
+    setTimeout(() => {
+      colorCells(colorScheme);
+    }, 0);
+  }
+}
 
-  // Disable or enable navigation buttons based on current page
-  document.getElementById('prev-button').disabled = currentColumnPage <= 0;
-  document.getElementById('next-button').disabled = columnEndValue >= maxColumnValue;
-  document.getElementById('up-button').disabled = currentRowPage <= 0;
-  document.getElementById('down-button').disabled = rowEndValue >= maxRowValue;
+// Function to color the cells based on their type
+function colorCells(type) {
+  var cells = document.getElementById('multiplication-table').getElementsByTagName('td');
+
+  // Clear the existing colors
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].classList.remove('odd');
+    cells[i].classList.remove('even');
+  }
+
+  // Color the cells based on the type
+  if (type === 'odd') {
+    for (let i = 0; i < cells.length; i++) {
+      if (!isNaN(cells[i].innerText) && cells[i].innerText % 2 !== 0) {
+        cells[i].classList.add('odd');
+      }
+    }
+  } else if (type === 'even') {
+    for (let i = 0; i < cells.length; i++) {
+      if (!isNaN(cells[i].innerText) && cells[i].innerText % 2 === 0) {
+        cells[i].classList.add('even');
+      }
+    }
+  }
 }
 
 // Listen for mouseover and mouseout events to handle keyboard navigation
-let multiplicationTable = document.getElementById('multiplication-table');
+var multiplicationTable = document.getElementById('multiplication-table');
 multiplicationTable.addEventListener('mouseover', function() {
   window.addEventListener('keydown', handleKeydown); // Enable keyboard navigation
 });

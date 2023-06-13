@@ -5,53 +5,79 @@ Description: This HTML file renders a multiplication table generator form and na
 It links to a CSS stylesheet for styling and a JavaScript file for functionality.
 -->
 
-<!DOCTYPE html>  
-<html>  
-<head>  
-  <title>Multiplication Table Generator</title>  
-  <link rel="stylesheet" type="text/css" href="../src/css/main.css">  
-</head>  
-<body>  
-  <!-- Main Heading -->  
-  <h1>Multiplication Table Generator</h1>  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table Generator</title>
+  <link rel="stylesheet" type="text/css" href="../src/css/main.css">
+</head>
+<body>
+  <!-- Main Heading -->
+  <h1>Multiplication Table Generator</h1>
 
-  <!-- Main container for the form and table -->  
-  <div class="container">  
-    <!-- Section for user inputs to generate table -->  
-    <div class="form-section">  
-      <form id="user-input-form">  
-        <!-- Form fields for column and row values -->  
-        <label for="min-column">Min Column Value:</label>  
-        <input type="number" id="min-column" min="-1000000" max="1000000">  
-        <label for="max-column">Max Column Value:</label>  
-        <input type="number" id="max-column" min="-1000000" max="1000000">  
-        <label for="min-row">Min Row Value:</label>  
-        <input type="number" id="min-row" min="-1000000" max="1000000">  
-        <label for="max-row">Max Row Value:</label>  
-        <input type="number" id="max-row" min="-1000000" max="1000000">  
+  <!-- Main container for the form and table -->
+  <div class="container">
+    <!-- Add this div to contain the rules and form sections -->
+    <div class="input-container">
+      <div class="rules">
+        <p>Please note the following rules for the form below:</p>
+        <ul>
+          <li>Letters are not accepted.</li>
+          <li>Integers greater than 1,000,000 are not accepted.</li>
+          <li>Integers less than -1,000,000 are not accepted.</li>
+        </ul>
+        <p>The form will accept decimal numbers as input, but these will be rounded to the nearest whole number.</p>
+        <p>If the minimum value for either row or column is greater than the maximum value, the input will swap the two numbers and generate the table.</p>
+        <p>Please also note the following rules for the 'Odd' and 'Even' buttons:</p>
+        <ul>
+          <li>When you press one of the buttons (Odd/Even), it will highlight the corresponding cells in the table.</li>
+          <li>If you press the same button again, the highlighting will be removed.</li>
+          <li>If you press one button and then press the other button, the highlighting will switch to correspond to the second button you pressed.</li>
+          <li>You cannot have both 'Odd' and 'Even' highlights active at the same time.</li>
+        </ul>
+        </div>
+        
+      
+      <!-- Section for user inputs to generate table -->
+      <div class="form-section">
+        <form id="user-input-form">
+          <!-- Form fields for column and row values -->
+          <label for="min-column">Min Column Value:</label>
+          <input type="number" id="min-column" min="-1000000" max="1000000" step="any">
+          <label for="max-column">Max Column Value:</label>
+          <input type="number" id="max-column" min="-1000000" max="1000000" step="any">
+          <label for="min-row">Min Row Value:</label>
+          <input type="number" id="min-row" min="-1000000" max="1000000" step="any">
+          <label for="max-row">Max Row Value:</label>
+          <input type="number" id="max-row" min="-1000000" max="1000000" step="any">
 
-        <!-- Submit button to generate table -->  
-        <button class="button-class" type="submit">Generate Table</button>  
-      </form>  
-    </div>  
+          <!-- Submit button to generate table -->
+          <button class="button-class" type="submit">Generate Table</button>
+        </form>
+      </div>
+    </div>
+      
+    <div class="filter-section">
+      <button id="odd" class="button-class" disabled>Odd</button>
+      <button id="even" class="button-class" disabled>Even</button>
+    </div>
 
-    <!-- Navigation buttons section -->  
-    <div class="navigation-section">  
-      <button class="button-class" id="prev-button" disabled>Previous</button>  
+    <!-- Navigation buttons section -->
+    <div class="navigation-section">
+      <button class="button-class" id="prev-button" disabled>Previous</button>
       <button class="button-class" id="next-button" disabled>Next</button>
       <button class="button-class" id="up-button" disabled>Up</button>
       <button class="button-class" id="down-button" disabled>Down</button>
-    </div>  
+    </div>
 
-    <!-- Section to display table and error message -->  
-    <div class="table-section">  
-      <p id="error-message"></p>  
-      <table id="multiplication-table">  
-      </table>  
-    </div>  
-  </div>  
+    <!-- Section to display table and error message -->
+    <div class="table-section">
+      <p id="error-message"></p>
+      <table id="multiplication-table"></table>
+    </div>
+  </div>
 
-  <!-- Link to JavaScript file for functionality -->  
-  <script src="../src/js/script.js"></script>  
-</body>  
-</html> 
+  <!-- Link to JavaScript file for functionality -->
+  <script src="../src/js/script.js"></script>
+</body>
+</html>
