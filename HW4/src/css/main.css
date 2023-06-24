@@ -1,0 +1,230 @@
+/*
+ * Author: Dan Choy
+ * Contact: yatshing_choy@student.uml.edu   
+ * 
+ * This CSS styles the multiplication table, form inputs, and navigation buttons
+ * for the dynamic multiplication table script.
+ */
+
+/* General settings for the whole page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F4F4F4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles for the main heading */
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    color: #444;
+}
+
+/* Styles for the main container, sets up the layout for the page */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Styles for the form section */
+.form-section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 20%;
+    max-width: 250px;
+    position: sticky;
+    top: 0;
+    order: 2;
+    width: 58%; 
+    margin-right: 37%;
+    
+}
+
+/* Styles for the navigation buttons */
+.navigation-section {
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+    max-width: 350px;
+    margin: 30px;
+    position: sticky;
+    top: 0;
+}
+
+/* Additional styles for navigation buttons */
+.navigation-section button {
+    flex: 1;
+    margin: 0 0.5em;
+}
+
+/* Styles for the table section */
+.table-section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 45%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 80vh;
+    text-align: left;
+    min-width: 300px;
+}
+
+/* Styles for the form layout */
+form {
+    display: grid;
+    grid-gap: 20px;
+}
+
+/* Styles for number input fields */
+input[type=number] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the form submit button */
+.button-class {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #007BFF;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Styles for hover state of the form submit button */
+.button-class:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for the error message */
+#error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Styles for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styles for table cells */
+td {
+    border: 1px solid #DDD;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Styles for rules section */
+.rules {
+    text-align: left;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #007BFF;
+    background-color: #F0F0F0;
+    padding: 20px;
+    border: 2px solid #DDD;
+    border-radius: 10px;
+    line-height: 1.5;
+    width: 55%; 
+    margin-left: -300px;
+}
+
+
+/* Styles for filter section (Odd/Even button) */
+.filter-section {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* Styles for table cells for Odd/Even numbers) */
+.odd {
+    background-color: #ffcccc; /* Light red */
+  }
+  
+.even {
+    background-color: #ccffcc; /* Light green */
+}
+
+/* Styles for form section container) */
+.input-container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: flex-start; 
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    flex-wrap: wrap; 
+}
+
+.tables-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+}
+
+#save-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 10%;
+    height: 150px;
+}
+
+/* New implement for style the new features */
+#save-button {
+    margin-top: 50px;
+    max-width: 100px;
+}
+#delete-button {
+    max-width: 100px;
+}
+
+label.error {
+    color: red;
+}
+
+#table-error-message {
+    color: red;
+}
+
+
+#tabs {
+    width: 45%;
+    max-height: 80vh;
+    overflow: scroll;
+}
+
+/* Adjust the screen size */
+@media (max-width: 1840px) {
+    .input-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .rules {
+        margin-left: 0;
+    }
+    .form-section {
+        margin-right: 0;
+    }
+}
