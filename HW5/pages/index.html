@@ -1,0 +1,83 @@
+<!-- 
+Author: Dan Choy
+Contact: yatshing_choy@student.uml.edu
+Description: 
+This HTML file represents a Scrabble game interface, styled with custom CSS and powered by jQuery and jQuery UI. 
+
+1. Libraries: 
+The page includes the jQuery and jQuery UI libraries, used to make the game interactive and to handle all the user interactions with the game elements.
+
+2. Game Board: 
+This section contains the image of the Scrabble board, where the user can place Scrabble tiles.
+
+3. Error/Success Messages: 
+The 'messages' div is used to display error or success messages, which provide feedback to the user about their actions in the game.
+
+4. Scoring: 
+The scoring section displays the current word being formed and the score of that word. It dynamically updates as the user interacts with the game.
+
+5. Control Buttons:
+This section includes the "Submit Word" and "Reset Tiles" buttons. The "Submit Word" button checks the validity of the created word, while the "Reset Tiles" button resets the board for a new game.
+
+6. Scrabble Tiles: 
+The last section contains the Scrabble rack image where the tiles are placed. This area dynamically changes as the game progresses, with tiles moving from the rack to the board.
+
+7. JavaScript:
+At the end of the HTML file, the Scrabble game script (scrabble.js) is linked. This script handles all of the logic behind the game, such as user interactions, word verification, scoring, and resetting the game.
+-->
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+
+  <!-- Styling -->
+  <link rel="stylesheet" href="../src/css/main.css">
+  <link rel="shortcut icon" href="../src/img/scrabble-tile-a.jpg">
+
+  <!-- Libraries -->
+  <!-- jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+  <!-- jQuery UI Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+</head>
+<body>
+    <!-- Game Board -->
+    <div class="row">
+        <div class="center">
+          <img class="resize_board" id="the_board" src="../src/img/scrabble/Scrabble_Board_OneLine.png">
+          <div id="board"></div>
+        </div>
+      </div>
+
+    <!-- Error / Success messages -->
+    <div id="messages"></div>
+
+    <!-- Scoring -->
+    <div class="row">
+        <div class="highlight_centered">Word: <span id="word">____</span> </div>
+        <div class="highlight_centered">Score: <span id="score">0</span> </div>
+    </div>
+
+    <!-- Control Buttons -->
+    <div class="row">
+        <div class="center">
+          <button onclick="submitWord()">Submit Word</button>
+          <button onclick="reset()">Reset Tiles</button>
+        </div>
+    </div>
+   
+    <!-- Scrabble Tiles -->
+    <div class="row">
+        <div class="center">
+          <img class="resize_rack" id="the_rack" src="../src/img/scrabble/Scrabble_Rack_flat.png">
+          <div id="rack"></div>
+        </div>
+    </div>
+
+    <!-- JS file to handle the scrabble game. -->
+    <script type='text/javascript' src="../src/js/scrabble.js"></script>
+
+</body>
+</html>

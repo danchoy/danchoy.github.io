@@ -1,0 +1,97 @@
+/*
+ * Author: Dan Choy
+ * Contact: yatshing_choy@student.uml.edu   
+ * 
+ * This CSS styles the Scrabble game interface including the game board, 
+ * control buttons, scoring display and game messages.  
+ */
+
+/* General CSS reset to remove browser default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a black background color for the whole page */
+body {
+  background-color: #000000;
+}
+
+/* Add a 10px margin to all direct children of body with class .row for better layout */
+body > .row {
+  margin: 10px;
+}
+
+/* Center aligned text and auto margins for block-level elements */
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+/* Styling for the Scrabble game board - size and positioning */
+.resize_board {
+  margin-top: 10%;
+  height: 125px;
+  width: auto;
+}
+
+/* Styling for the Scrabble game rack - fixed dimensions */
+.resize_rack {
+  height: 125px;
+  width: 1200px;
+}
+
+/* Styling for the Scrabble game pieces - fixed dimensions */
+.pieces {
+  height: 100px;
+  width: 100px;
+}
+
+/* Styling for the droppable areas on the Scrabble board - fixed dimensions */
+.droppable {
+  height: 125px;
+  width: 118px;
+}
+
+/* Styling for the control buttons in the game - fixed dimensions, font styling, color, and alignment */
+button {
+  color: black;
+  font-family: "Advent Pro";
+  font-size: 150%;
+  font-weight: 900;
+  text-align: center;
+  height: 75px;
+  width: 200px;
+}
+
+/* Styling for the highlighted text - used for displaying word and score */
+.highlight_centered {
+  background-color: black;
+  color: white;
+  font-family: "Advent Pro";
+  font-size: 200%;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* Styling for success messages - color, border, font styling, and alignment */
+.highlight_centered_success {
+  background-color: black;
+  border: 1px solid green;
+  color: green;
+  font-family: "Ubuntu";
+  font-size: 150%;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* Styling for error messages - color, border, font styling, and alignment */
+.highlight_centered_error {
+  background-color: black;
+  border: 1px solid red;
+  color: red;
+  font-family: "Ubuntu";
+  font-size: 150%;
+  font-weight: 900;
+  text-align: center;
+}
